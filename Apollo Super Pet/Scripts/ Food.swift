@@ -8,11 +8,13 @@ protocol AllFoods {
     var reducesHunger: Bool { get }
     var makesSick: Bool { get }
     var increasesHappiness: Bool { get }
-    func beingEatenAnim(on node: SKSpriteNode)
+    func foodIsBeingEaten(on node: SKSpriteNode)
 }
 
 extension AllFoods {
-    func beingEatenAnim(on node: SKSpriteNode) {
+    func foodIsBeingEaten(on node: SKSpriteNode) {
+        let foodEatenAnim = SKAction.animate (with: foodAnimationFrames, timePerFrame: 0.8 )
+        node.run(foodEatenAnim)
         //add the food being eaten aniation here
     }
 }
@@ -88,27 +90,19 @@ struct drink: AllFoods {
 
 class Food: BaseScene {
     
-    let scaleFactor: CGFloat = 0.75
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
         
-        guard let touch = touches.first else { return }
-        let location = touch.location(in: self)
         
-        let playerTouchesMidScreen = location.y > size.height/4 && location.y < (size.height * 2/3)
-        
-        let playerTouchedUpperScreen = location.y > size.height * (2.0/3.0)
-        
-        if playerTouchedUpperScreen {
+      if playerTouchedUpperScreen {
             let idleScene = GameScene(size: self.size)
             self.view?.presentScene(idleScene)
         }
-        
-        if playerTouchesMidScreen {
-            currentIndex += 1
-            pointer()
-            print("index has been increased to \(currentIndex)")
-        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
     }
     
     override func didMove(to view: SKView) {
@@ -182,6 +176,9 @@ class Food: BaseScene {
             
             
         }
-        
+     
+        func eatTheFood() {
+            
+        }
     }
 }

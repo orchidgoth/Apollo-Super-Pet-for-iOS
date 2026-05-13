@@ -28,7 +28,7 @@ class BaseScene: SKScene {
     
     var playerTouchedUpperScreen = false
     var playerTouchesMidScreen = false
-    var playerSwipedUp = false
+    //var playerSwipedUp = false
     var touchStartPoint: CGPoint?
     var touchEndPoint: CGPoint?
     
@@ -37,109 +37,85 @@ class BaseScene: SKScene {
     
     /* all about touch recognition and touch controls */
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
         guard let touch = touches.first else { return }
         
         let location = touch.location(in: self)
         
         touchStartPoint = location
         
-        if selectionPointer.contains(location) && playerSwipedUp {
-            
-            print ("poo poo pee pee, player confirmed the food")
-        }
-        
-        /*repeat these two lines in every scene*/
-        playerTouchesMidScreen = location.y > size.height/4 && location.y < (size.height * 2/3)
-        playerTouchedUpperScreen = location.y > size.height * (2.0/3.0)
-        
         if foodButton.contains(location) {
             
             let foodScene = Food(size: self.size)
             self.view?.presentScene(foodScene)
-            
+            return
         }
         
-        if let touch = touches.first {
-            let location = touch.location(in: self) // coordinate inside the scene
-            print("Tapped at: \(location)")
-        }
         
         if statsButton.contains(location) {
             let stats = Stats(size: self.size)
             self.view?.presentScene(stats)
+            return
             
         }
         
     }
     /*_________________ TOUCHES ENDED___________________*/
     override func touchesEnded (_ touches: Set<UITouch>, with event: UIEvent?) {
+        
         guard let touch = touches.first else { return }
+        
         let location = touch.location (in: self)
         touchEndPoint = location
         
+        /*____ALL ABOUT SWIPE UP_____*/
         let swipeEnd = touch.location(in: self)
         
         guard let swipeStart = touchStartPoint else { return }
         
         let swipePointsDifference = swipeEnd.y - swipeStart.y
         
-        if swipePointsDifference > 50 {
-            playerSwipedUp = true
+        let playerSwipedUp = swipePointsDifference > 50
+        if playerSwipedUp {
             print ("Yay, they swiped up!")
+            return
+        }
+        /*____ALL ABOUT TOUCHING DIFFERENT SCREEN PARTS_____*/
+        
+        playerTouchesMidScreen = location.y > size.height/4 && location.y < (size.height * 2/3)
+        playerTouchedUpperScreen = location.y > size.height * (2.0/3.0)
+        
+        
+        if playerTouchesMidScreen {
+            currentIndex += 1
+            pointer()
+            print("index has been increased to \(currentIndex)")
+            
+            
+            if selectionPointer.contains(location) && playerSwipedUp {
+                
+                print ("poo poo pee pee, player confirmed the food")
+                return
+            }
+            
+           
         }
     }
-    
-    
-    //debug grid to position the stuff like in the actual game, will not be in the game
-    
-    /* func showDebugGrid(cellSize: CGFloat = 14) {
-     let columns = Int(size.width / cellSize)
-     let rows = Int(size.height / cellSize)
-     for col in 0...columns {
-     let x = CGFloat(col) * cellSize
-     let path = CGMutablePath()
-     path.move(to: CGPoint(x: x, y: 0))
-     path.addLine(to: CGPoint(x: x, y: size.height))
-     
-     let line = SKShapeNode(path: path)
-     line.strokeColor = .systemPink
-     line.lineWidth = 0.5
-     line.zPosition = 1000
-     addChild(line)
-     }
-     
-     for row in 0...rows {
-     let y = CGFloat(row) * cellSize+1
-     let path = CGMutablePath()
-     path.move(to: CGPoint(x: 0, y: y))
-     path.addLine(to: CGPoint(x: size.width, y: y))
-     
-     let line = SKShapeNode(path: path)
-     line.strokeColor = .systemPink
-     line.lineWidth = 0.5
-     line.zPosition = 1000
-     addChild(line)
-     }
-     
-     }
-     */
-    
-    
-    
-    /*______________________________________________________________________________*/
-    
-    override func didMove(to view: SKView) {
-        super.didMove(to: view)
-        upperButtons = [statsButton, foodButton, playButton, docButton, studyButton]
-        setupCommonElements()
         
-        // this is where debug stuff would go
-        //DebugStuff.highlightOverlay(on: self)
+        /*______________________________________________________________________________*/
         
-        showDebugGrid()
-    }
-    
-    func pointer() {
+        override func didMove(to view: SKView) {
+            super.didMove(to: view)
+            upperButtons = [statsButton, foodButton, playButton, docButton, studyButton]
+            setupCommonElements()
+            
+            // this is where debug stuff would go
+            //DebugStuff.highlightOverlay(on: self)
+            
+            showDebugGrid()
+        }
+        
+        func pointer() {
             guard !items.isEmpty else { return }
             
             if currentIndex >= items.count {
@@ -166,12 +142,12 @@ class BaseScene: SKScene {
                 pointerPosition.x += 0
                 
             }
-
+            
             
             selectionPointer.position = pointerPosition
             print("Current index:", currentIndex)
-                
-           for (index, item) in items.enumerated() {
+            
+            for (index, item) in items.enumerated() {
                 
                 if currentIndex > 1 {
                     item.isHidden = !(2...4).contains(index)
@@ -187,110 +163,107 @@ class BaseScene: SKScene {
                 
                 
             }
-        
-       
-       // selectionPointer.position = CGPoint(x: 197, y: 350)
-        
-        
-    }
-    
-    func setupCommonElements() {
-        //set up that background with clouds
-        background.position = CGPoint(x: size.width / 2, y: size.height / 2)
-        background.setScale(0.65)
-        background.zPosition = -5
-        if background.parent == nil {
-            addChild(background)
             
-            //setup the upper buttons, add the lower ones later
-            let buttonWidth = size.width * 0.12
-            let buttonSize = CGSize(width: buttonWidth, height: buttonWidth)
-            let buttonSpacing = size.width * 0.05
             
-            let totalButtonWidth = CGFloat(upperButtons.count) * buttonSize.width
-            let totalSpacing = CGFloat(upperButtons.count - 1) * buttonSpacing
-            let totalWidth = totalButtonWidth + totalSpacing
-            let startX = (size.width - totalWidth) / 1.32
+            // selectionPointer.position = CGPoint(x: 197, y: 350)
             
-            for (index, button) in upperButtons.enumerated() {
-                button.size = buttonSize
-                let x = startX + CGFloat(index) * (buttonSize.width + buttonSpacing)
-                let y = size.height - (buttonSize.height * 3)
-                button.position = CGPoint(x: x, y: y)
-                button.zPosition = 1
-                for button in upperButtons {
-                    if button.parent == nil {
-                        addChild(button)
+            
+        }
+        
+        func setupCommonElements() {
+            //set up that background with clouds
+            background.position = CGPoint(x: size.width / 2, y: size.height / 2)
+            background.setScale(0.65)
+            background.zPosition = -5
+            if background.parent == nil {
+                addChild(background)
+                
+                //setup the upper buttons, add the lower ones later
+                let buttonWidth = size.width * 0.12
+                let buttonSize = CGSize(width: buttonWidth, height: buttonWidth)
+                let buttonSpacing = size.width * 0.05
+                
+                let totalButtonWidth = CGFloat(upperButtons.count) * buttonSize.width
+                let totalSpacing = CGFloat(upperButtons.count - 1) * buttonSpacing
+                let totalWidth = totalButtonWidth + totalSpacing
+                let startX = (size.width - totalWidth) / 1.32
+                
+                for (index, button) in upperButtons.enumerated() {
+                    button.size = buttonSize
+                    let x = startX + CGFloat(index) * (buttonSize.width + buttonSpacing)
+                    let y = size.height - (buttonSize.height * 3)
+                    button.position = CGPoint(x: x, y: y)
+                    button.zPosition = 1
+                    for button in upperButtons {
+                        if button.parent == nil {
+                            addChild(button)
+                        }
                     }
                 }
             }
         }
+        
+        func showDebugGrid(cellSize: CGFloat = 14) {
+            let columns = Int(size.width / cellSize)
+            let rows = Int(size.height / cellSize)
+            for col in 0...columns {
+                let x = CGFloat(col) * cellSize
+                let path = CGMutablePath()
+                path.move(to: CGPoint(x: x, y: 0))
+                path.addLine(to: CGPoint(x: x, y: size.height))
+                
+                let line = SKShapeNode(path: path)
+                line.strokeColor = .systemPink
+                line.lineWidth = 0.5
+                line.zPosition = 1000
+                addChild(line)
+            }
+            
+            for row in 0...rows {
+                let y = CGFloat(row) * cellSize+1
+                let path = CGMutablePath()
+                path.move(to: CGPoint(x: 0, y: y))
+                path.addLine(to: CGPoint(x: size.width, y: y))
+                
+                let line = SKShapeNode(path: path)
+                line.strokeColor = .systemPink
+                line.lineWidth = 0.5
+                line.zPosition = 1000
+                addChild(line)
+            }
+        }
     }
     
-    func showDebugGrid(cellSize: CGFloat = 14) {
-        let columns = Int(size.width / cellSize)
-        let rows = Int(size.height / cellSize)
-        for col in 0...columns {
-            let x = CGFloat(col) * cellSize
-            let path = CGMutablePath()
-            path.move(to: CGPoint(x: x, y: 0))
-            path.addLine(to: CGPoint(x: x, y: size.height))
-            
-            let line = SKShapeNode(path: path)
-            line.strokeColor = .systemPink
-            line.lineWidth = 0.5
-            line.zPosition = 1000
-            addChild(line)
-        }
-        
-        for row in 0...rows {
-            let y = CGFloat(row) * cellSize+1
-            let path = CGMutablePath()
-            path.move(to: CGPoint(x: 0, y: y))
-            path.addLine(to: CGPoint(x: size.width, y: y))
-            
-            let line = SKShapeNode(path: path)
-            line.strokeColor = .systemPink
-            line.lineWidth = 0.5
-            line.zPosition = 1000
-            addChild(line)
-        }
-    }
-}
-                    
-                   /* func setupCommonElements() {
-                        //set up that background with clouds
-                        background.position = CGPoint(x: size.width / 2, y: size.height / 2)
-                        background.setScale(0.65)
-                        background.zPosition = -5
-                        if background.parent == nil {
-                            addChild(background)
-                            
-                            //setup the upper buttons, add the lower ones later
-                            
-                            let buttonWidth = size.width * 0.12
-                            let buttonSize = CGSize(width: buttonWidth, height: buttonWidth)
-                            let buttonSpacing = size.width * 0.05
-                            
-                            let totalButtonWidth = CGFloat(upperButtons.count) * buttonSize.width
-                            let totalSpacing = CGFloat(upperButtons.count - 1) * buttonSpacing
-                            let totalWidth = totalButtonWidth + totalSpacing
-                            let startX = (size.width - totalWidth) / 1.32
-                            
-                            for (index, button) in upperButtons.enumerated() {
-                                button.size = buttonSize
-                                let x = startX + CGFloat(index) * (buttonSize.width + buttonSpacing)
-                                let y = size.height - (buttonSize.height * 3)
-                                button.position = CGPoint(x: x, y: y)
-                                button.zPosition = 1
-                                for button in upperButtons {
-                                    if button.parent == nil {
-                                        addChild(button)
-                                    }
-                                }
-                            }
-                        } */
-                        
-        
-            
-  
+    /* func setupCommonElements() {
+     //set up that background with clouds
+     background.position = CGPoint(x: size.width / 2, y: size.height / 2)
+     background.setScale(0.65)
+     background.zPosition = -5
+     if background.parent == nil {
+     addChild(background)
+     
+     //setup the upper buttons, add the lower ones later
+     
+     let buttonWidth = size.width * 0.12
+     let buttonSize = CGSize(width: buttonWidth, height: buttonWidth)
+     let buttonSpacing = size.width * 0.05
+     
+     let totalButtonWidth = CGFloat(upperButtons.count) * buttonSize.width
+     let totalSpacing = CGFloat(upperButtons.count - 1) * buttonSpacing
+     let totalWidth = totalButtonWidth + totalSpacing
+     let startX = (size.width - totalWidth) / 1.32
+     
+     for (index, button) in upperButtons.enumerated() {
+     button.size = buttonSize
+     let x = startX + CGFloat(index) * (buttonSize.width + buttonSpacing)
+     let y = size.height - (buttonSize.height * 3)
+     button.position = CGPoint(x: x, y: y)
+     button.zPosition = 1
+     for button in upperButtons {
+     if button.parent == nil {
+     addChild(button)
+     }
+     }
+     }
+     } */
+    
