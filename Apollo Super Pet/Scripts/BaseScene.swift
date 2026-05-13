@@ -42,6 +42,8 @@ class BaseScene: SKScene {
         
         let location = touch.location(in: self)
         
+        playerTouchedUpperScreen = location.y > size.height * (2.0/3.0)
+        
         touchStartPoint = location
         
         if foodButton.contains(location) {
@@ -83,13 +85,14 @@ class BaseScene: SKScene {
         /*____ALL ABOUT TOUCHING DIFFERENT SCREEN PARTS_____*/
         
         playerTouchesMidScreen = location.y > size.height/4 && location.y < (size.height * 2/3)
-        playerTouchedUpperScreen = location.y > size.height * (2.0/3.0)
+      
         
         
         if playerTouchesMidScreen {
             currentIndex += 1
             pointer()
             print("index has been increased to \(currentIndex)")
+            print ("player chose \(items)")
             
             
             if selectionPointer.contains(location) && playerSwipedUp {
