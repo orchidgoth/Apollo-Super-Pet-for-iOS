@@ -16,13 +16,13 @@ class GameScene: BaseScene {
         
         setupCommonElements()
         
-        setupCharacter()
+        setupIdleCharacter()
         
     }
     
-    func setupCharacter() {
+    func setupIdleCharacter() {
         
-        let characterNow = CharacterManager.shared.setupCharacter()
+        let characterNow = CharacterManager.shared.setupIdleCharacter()
         
         let idleCharSprite = SKSpriteNode(texture: characterNow.idleFrames.first)
         idleCharSprite.position = CGPoint(x: 197, y: 350)

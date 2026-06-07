@@ -12,13 +12,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>207</string>
+					<string>214</string>
 					<key>StartingColumnNumber</key>
-					<string>0</string>
+					<string>8</string>
 					<key>StartingLineNumber</key>
-					<string>206</string>
+					<string>213</string>
 					<key>Timestamp</key>
-					<string>802517639.835544</string>
+					<string>802565282.699392</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -37,11 +37,14 @@
 				<string>}
 </string>
 				<key>leading</key>
-				<string>        }
-    }
-</string>
+				<string>        if playerSwipedUp {
+            eatTheFood()
+        </string>
 				<key>trailing</key>
-				<string></string>
+				<string>        
+    }
+}
+</string>
 			</dict>
 			<key>title</key>
 			<string>protocol with all the properties all foods have in the game</string>
@@ -56,13 +59,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>207</string>
+					<string>214</string>
 					<key>StartingColumnNumber</key>
-					<string>0</string>
+					<string>8</string>
 					<key>StartingLineNumber</key>
-					<string>206</string>
+					<string>213</string>
 					<key>Timestamp</key>
-					<string>802517639.835556</string>
+					<string>802565282.699356</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -81,11 +84,14 @@
 				<string>}
 </string>
 				<key>leading</key>
-				<string>        }
-    }
-</string>
+				<string>        if playerSwipedUp {
+            eatTheFood()
+        </string>
 				<key>trailing</key>
-				<string></string>
+				<string>        
+    }
+}
+</string>
 			</dict>
 			<key>title</key>
 			<string>the Food class starts here</string>
@@ -100,13 +106,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>207</string>
+					<string>214</string>
 					<key>StartingColumnNumber</key>
-					<string>0</string>
+					<string>8</string>
 					<key>StartingLineNumber</key>
-					<string>206</string>
+					<string>213</string>
 					<key>Timestamp</key>
-					<string>802517639.835456</string>
+					<string>802565282.699386</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -125,11 +131,14 @@
 				<string>}
 </string>
 				<key>leading</key>
-				<string>        }
-    }
-</string>
+				<string>        if playerSwipedUp {
+            eatTheFood()
+        </string>
 				<key>trailing</key>
-				<string></string>
+				<string>        
+    }
+}
+</string>
 			</dict>
 			<key>title</key>
 			<string>arrow pointer function</string>
@@ -144,13 +153,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>207</string>
+					<string>214</string>
 					<key>StartingColumnNumber</key>
-					<string>0</string>
+					<string>8</string>
 					<key>StartingLineNumber</key>
-					<string>206</string>
+					<string>213</string>
 					<key>Timestamp</key>
-					<string>802517639.835519</string>
+					<string>802565282.699411</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -169,11 +178,14 @@
 				<string>}
 </string>
 				<key>leading</key>
-				<string>        }
-    }
-</string>
+				<string>        if playerSwipedUp {
+            eatTheFood()
+        </string>
 				<key>trailing</key>
-				<string></string>
+				<string>        
+    }
+}
+</string>
 			</dict>
 			<key>title</key>
 			<string>pointer function ends here</string>
@@ -188,13 +200,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>207</string>
+					<string>214</string>
 					<key>StartingColumnNumber</key>
-					<string>0</string>
+					<string>8</string>
 					<key>StartingLineNumber</key>
-					<string>206</string>
+					<string>213</string>
 					<key>Timestamp</key>
-					<string>802517639.835494</string>
+					<string>802565282.699405</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -213,11 +225,14 @@
 				<string>}
 </string>
 				<key>leading</key>
-				<string>        }
-    }
-</string>
+				<string>        if playerSwipedUp {
+            eatTheFood()
+        </string>
 				<key>trailing</key>
-				<string></string>
+				<string>        
+    }
+}
+</string>
 			</dict>
 			<key>title</key>
 			<string>touch handling starts here</string>
@@ -232,13 +247,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>207</string>
+					<string>214</string>
 					<key>StartingColumnNumber</key>
-					<string>0</string>
+					<string>8</string>
 					<key>StartingLineNumber</key>
-					<string>206</string>
+					<string>213</string>
 					<key>Timestamp</key>
-					<string>802517639.835482</string>
+					<string>802565282.6989419</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -257,11 +272,14 @@
 				<string>}
 </string>
 				<key>leading</key>
-				<string>        }
-    }
-</string>
+				<string>        if playerSwipedUp {
+            eatTheFood()
+        </string>
 				<key>trailing</key>
-				<string></string>
+				<string>        
+    }
+}
+</string>
 			</dict>
 			<key>title</key>
 			<string>didMoveTo starts here</string>
@@ -276,13 +294,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>207</string>
+					<string>214</string>
 					<key>StartingColumnNumber</key>
-					<string>0</string>
+					<string>8</string>
 					<key>StartingLineNumber</key>
-					<string>206</string>
+					<string>213</string>
 					<key>Timestamp</key>
-					<string>802517639.835443</string>
+					<string>802565282.699371</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -301,11 +319,14 @@
 				<string>}
 </string>
 				<key>leading</key>
-				<string>        }
-    }
-</string>
+				<string>        if playerSwipedUp {
+            eatTheFood()
+        </string>
 				<key>trailing</key>
-				<string></string>
+				<string>        
+    }
+}
+</string>
 			</dict>
 			<key>title</key>
 			<string>function ShowPageOneFoods</string>
@@ -320,13 +341,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>207</string>
+					<string>214</string>
 					<key>StartingColumnNumber</key>
-					<string>0</string>
+					<string>8</string>
 					<key>StartingLineNumber</key>
-					<string>206</string>
+					<string>213</string>
 					<key>Timestamp</key>
-					<string>802517639.835469</string>
+					<string>802565282.699417</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -345,11 +366,14 @@
 				<string>}
 </string>
 				<key>leading</key>
-				<string>        }
-    }
-</string>
+				<string>        if playerSwipedUp {
+            eatTheFood()
+        </string>
 				<key>trailing</key>
-				<string></string>
+				<string>        
+    }
+}
+</string>
 			</dict>
 			<key>title</key>
 			<string>function ShowPage2Foods</string>
@@ -364,13 +388,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>207</string>
+					<string>214</string>
 					<key>StartingColumnNumber</key>
-					<string>0</string>
+					<string>8</string>
 					<key>StartingLineNumber</key>
-					<string>206</string>
+					<string>213</string>
 					<key>Timestamp</key>
-					<string>802517639.835506</string>
+					<string>802565282.699378</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -389,11 +413,14 @@
 				<string>}
 </string>
 				<key>leading</key>
-				<string>        }
-    }
-</string>
+				<string>        if playerSwipedUp {
+            eatTheFood()
+        </string>
 				<key>trailing</key>
-				<string></string>
+				<string>        
+    }
+}
+</string>
 			</dict>
 			<key>title</key>
 			<string>function to set the table (to show the foods on a page)</string>
@@ -408,13 +435,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>207</string>
+					<string>214</string>
 					<key>StartingColumnNumber</key>
-					<string>0</string>
+					<string>8</string>
 					<key>StartingLineNumber</key>
-					<string>206</string>
+					<string>213</string>
 					<key>Timestamp</key>
-					<string>802517639.835531</string>
+					<string>802565282.699398</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -433,11 +460,14 @@
 				<string>}
 </string>
 				<key>leading</key>
-				<string>        }
-    }
-</string>
+				<string>        if playerSwipedUp {
+            eatTheFood()
+        </string>
 				<key>trailing</key>
-				<string></string>
+				<string>        
+    }
+}
+</string>
 			</dict>
 			<key>type</key>
 			<string>bookmark</string>

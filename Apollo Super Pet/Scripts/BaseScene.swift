@@ -79,12 +79,15 @@ class BaseScene: SKScene {
         let swipePointsDifference = swipeEnd.y - swipeStart.y
         
         let playerSwipedUp = swipePointsDifference > 50
+      
         
         if playerSwipedUp && selectionPointer.contains(swipeStart) {
+            (self as? Food)?.eatTheFood()
             itemIsConfirmed = true
            print ("Yay, they swiped up to choose a food!")
             return
         }
+        
         /*____ALL ABOUT TOUCHING DIFFERENT SCREEN PARTS_____*/
         
         playerTouchesMidScreen = location.y > size.height/4 && location.y < (size.height * 2/3)
