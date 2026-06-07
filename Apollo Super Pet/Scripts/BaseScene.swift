@@ -20,15 +20,15 @@ class BaseScene: SKScene {
     
     var selectionPointer = SKSpriteNode(imageNamed: "pointer")
     var currentIndex = 0
-    var items: [SKNode] = []
+    var items: [SKSpriteNode] = []
     var itemIsChosen: Bool = false
     var itemIsConfirmed: Bool = false
     var lastTapTime: TimeInterval = 0
     let doubleTapThreshold: TimeInterval = 0.3
-    
+    var chosenItem: SKSpriteNode?
     var playerTouchedUpperScreen = false
     var playerTouchesMidScreen = false
-    //var playerSwipedUp = false
+    var playerSwipedUp = false
     var touchStartPoint: CGPoint?
     var touchEndPoint: CGPoint?
     
@@ -41,10 +41,11 @@ class BaseScene: SKScene {
         guard let touch = touches.first else { return }
         
         let location = touch.location(in: self)
+        touchStartPoint = location
         
         playerTouchedUpperScreen = location.y > size.height * (2.0/3.0)
         
-        touchStartPoint = location
+      
         
         if foodButton.contains(location) {
             
@@ -78,8 +79,10 @@ class BaseScene: SKScene {
         let swipePointsDifference = swipeEnd.y - swipeStart.y
         
         let playerSwipedUp = swipePointsDifference > 50
-        if playerSwipedUp {
-            print ("Yay, they swiped up!")
+        
+        if playerSwipedUp && selectionPointer.contains(swipeStart) {
+            itemIsConfirmed = true
+           print ("Yay, they swiped up to choose a food!")
             return
         }
         /*____ALL ABOUT TOUCHING DIFFERENT SCREEN PARTS_____*/
@@ -92,14 +95,14 @@ class BaseScene: SKScene {
             currentIndex += 1
             pointer()
             print("index has been increased to \(currentIndex)")
-            print ("player chose \(items)")
+           
             
             
-            if selectionPointer.contains(location) && playerSwipedUp {
+          //  if selectionPointer.contains(location) && playerSwipedUp {
                 
-                print ("poo poo pee pee, player confirmed the food")
-                return
-            }
+            //    print ("poo poo pee pee, player confirmed the food")
+              //  return
+            //}
             
            
         }
@@ -119,13 +122,17 @@ class BaseScene: SKScene {
         }
         
         func pointer() {
-            guard !items.isEmpty else { return }
-            
+        guard !items.isEmpty else { return }
+
             if currentIndex >= items.count {
                 currentIndex = 0
             }
             
-            let chosenItem = items[currentIndex]
+            chosenItem = items[currentIndex]
+            itemIsChosen = true
+           // print("this item has been chosen")
+            
+            guard let chosenItem = chosenItem else { return }
             
             var pointerPosition = CGPoint(x: chosenItem.position.x, y: chosenItem.position.y)
             
@@ -148,7 +155,8 @@ class BaseScene: SKScene {
             
             
             selectionPointer.position = pointerPosition
-            print("Current index:", currentIndex)
+            //print("Current index:", currentIndex)
+           // print ("player chose \(chosenItem)")
             
             for (index, item) in items.enumerated() {
                 
@@ -166,9 +174,6 @@ class BaseScene: SKScene {
                 
                 
             }
-            
-            
-            // selectionPointer.position = CGPoint(x: 197, y: 350)
             
             
         }
@@ -236,37 +241,3 @@ class BaseScene: SKScene {
             }
         }
     }
-    
-    /* func setupCommonElements() {
-     //set up that background with clouds
-     background.position = CGPoint(x: size.width / 2, y: size.height / 2)
-     background.setScale(0.65)
-     background.zPosition = -5
-     if background.parent == nil {
-     addChild(background)
-     
-     //setup the upper buttons, add the lower ones later
-     
-     let buttonWidth = size.width * 0.12
-     let buttonSize = CGSize(width: buttonWidth, height: buttonWidth)
-     let buttonSpacing = size.width * 0.05
-     
-     let totalButtonWidth = CGFloat(upperButtons.count) * buttonSize.width
-     let totalSpacing = CGFloat(upperButtons.count - 1) * buttonSpacing
-     let totalWidth = totalButtonWidth + totalSpacing
-     let startX = (size.width - totalWidth) / 1.32
-     
-     for (index, button) in upperButtons.enumerated() {
-     button.size = buttonSize
-     let x = startX + CGFloat(index) * (buttonSize.width + buttonSpacing)
-     let y = size.height - (buttonSize.height * 3)
-     button.position = CGPoint(x: x, y: y)
-     button.zPosition = 1
-     for button in upperButtons {
-     if button.parent == nil {
-     addChild(button)
-     }
-     }
-     }
-     } */
-    
