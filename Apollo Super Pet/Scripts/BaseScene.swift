@@ -23,6 +23,7 @@ class BaseScene: SKScene {
     var items: [SKSpriteNode] = []
     var itemIsChosen: Bool = false
     var itemIsConfirmed: Bool = false
+    var isEating = false
     var lastTapTime: TimeInterval = 0
     let doubleTapThreshold: TimeInterval = 0.3
     var chosenItem: SKSpriteNode?
@@ -83,6 +84,7 @@ class BaseScene: SKScene {
         
         if playerSwipedUp && selectionPointer.contains(swipeStart) {
             (self as? Food)?.eatTheFood()
+            // add here what happens if the scene is other, like Stats or Games etc. 
             itemIsConfirmed = true
            print ("Yay, they swiped up to choose a food!")
             return
@@ -94,7 +96,7 @@ class BaseScene: SKScene {
       
         
         
-        if playerTouchesMidScreen {
+        if playerTouchesMidScreen && !isEating {
             currentIndex += 1
             pointer()
             print("index has been increased to \(currentIndex)")

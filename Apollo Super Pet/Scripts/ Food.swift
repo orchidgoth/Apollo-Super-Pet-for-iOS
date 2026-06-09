@@ -194,6 +194,9 @@ class Food: BaseScene {
     
     func eatTheFood() {
         
+        isEating = true
+        
+        selectionPointer.removeFromParent()
         mainCoursePicture.removeFromParent()
         hotdogPicture.removeFromParent()
         applePicture.removeFromParent()
@@ -208,10 +211,7 @@ class Food: BaseScene {
         addChild(hungryCharSprite)
         
         characterNow.eatingAnim(on: hungryCharSprite)
-        
-        if playerSwipedUp {
-            eatTheFood()
+            
         }
         
     }
-}

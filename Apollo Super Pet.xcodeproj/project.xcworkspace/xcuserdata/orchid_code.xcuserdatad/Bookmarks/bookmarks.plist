@@ -12,13 +12,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>214</string>
+					<string>215</string>
 					<key>StartingColumnNumber</key>
-					<string>8</string>
+					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>213</string>
+					<string>214</string>
 					<key>Timestamp</key>
-					<string>802565282.699392</string>
+					<string>802708453.525663</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -34,16 +34,15 @@
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string>}
+				<string>        }
 </string>
 				<key>leading</key>
-				<string>        if playerSwipedUp {
-            eatTheFood()
-        </string>
+				<string>        characterNow.eatingAnim(on: hungryCharSprite)
+            
+</string>
 				<key>trailing</key>
 				<string>        
     }
-}
 </string>
 			</dict>
 			<key>title</key>
@@ -59,13 +58,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>214</string>
+					<string>215</string>
 					<key>StartingColumnNumber</key>
-					<string>8</string>
+					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>213</string>
+					<string>214</string>
 					<key>Timestamp</key>
-					<string>802565282.699356</string>
+					<string>802708453.5257829</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -81,16 +80,15 @@
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string>}
+				<string>        }
 </string>
 				<key>leading</key>
-				<string>        if playerSwipedUp {
-            eatTheFood()
-        </string>
+				<string>        characterNow.eatingAnim(on: hungryCharSprite)
+            
+</string>
 				<key>trailing</key>
 				<string>        
     }
-}
 </string>
 			</dict>
 			<key>title</key>
@@ -106,13 +104,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>214</string>
+					<string>215</string>
 					<key>StartingColumnNumber</key>
-					<string>8</string>
+					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>213</string>
+					<string>214</string>
 					<key>Timestamp</key>
-					<string>802565282.699386</string>
+					<string>802708453.5258729</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -128,16 +126,15 @@
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string>}
+				<string>        }
 </string>
 				<key>leading</key>
-				<string>        if playerSwipedUp {
-            eatTheFood()
-        </string>
+				<string>        characterNow.eatingAnim(on: hungryCharSprite)
+            
+</string>
 				<key>trailing</key>
 				<string>        
     }
-}
 </string>
 			</dict>
 			<key>title</key>
@@ -153,13 +150,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>214</string>
+					<string>215</string>
 					<key>StartingColumnNumber</key>
-					<string>8</string>
+					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>213</string>
+					<string>214</string>
 					<key>Timestamp</key>
-					<string>802565282.699411</string>
+					<string>802708453.525723</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -175,16 +172,15 @@
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string>}
+				<string>        }
 </string>
 				<key>leading</key>
-				<string>        if playerSwipedUp {
-            eatTheFood()
-        </string>
+				<string>        characterNow.eatingAnim(on: hungryCharSprite)
+            
+</string>
 				<key>trailing</key>
 				<string>        
     }
-}
 </string>
 			</dict>
 			<key>title</key>
@@ -200,13 +196,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>214</string>
+					<string>215</string>
 					<key>StartingColumnNumber</key>
-					<string>8</string>
+					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>213</string>
+					<string>214</string>
 					<key>Timestamp</key>
-					<string>802565282.699405</string>
+					<string>802708453.525753</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -222,16 +218,15 @@
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string>}
+				<string>        }
 </string>
 				<key>leading</key>
-				<string>        if playerSwipedUp {
-            eatTheFood()
-        </string>
+				<string>        characterNow.eatingAnim(on: hungryCharSprite)
+            
+</string>
 				<key>trailing</key>
 				<string>        
     }
-}
 </string>
 			</dict>
 			<key>title</key>
@@ -247,13 +242,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>214</string>
+					<string>215</string>
 					<key>StartingColumnNumber</key>
-					<string>8</string>
+					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>213</string>
+					<string>214</string>
 					<key>Timestamp</key>
-					<string>802565282.6989419</string>
+					<string>802708453.5256931</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -269,16 +264,15 @@
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string>}
+				<string>        }
 </string>
 				<key>leading</key>
-				<string>        if playerSwipedUp {
-            eatTheFood()
-        </string>
+				<string>        characterNow.eatingAnim(on: hungryCharSprite)
+            
+</string>
 				<key>trailing</key>
 				<string>        
     }
-}
 </string>
 			</dict>
 			<key>title</key>
@@ -294,13 +288,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>214</string>
+					<string>215</string>
 					<key>StartingColumnNumber</key>
-					<string>8</string>
+					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>213</string>
+					<string>214</string>
 					<key>Timestamp</key>
-					<string>802565282.699371</string>
+					<string>802708453.525843</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -316,16 +310,15 @@
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string>}
+				<string>        }
 </string>
 				<key>leading</key>
-				<string>        if playerSwipedUp {
-            eatTheFood()
-        </string>
+				<string>        characterNow.eatingAnim(on: hungryCharSprite)
+            
+</string>
 				<key>trailing</key>
 				<string>        
     }
-}
 </string>
 			</dict>
 			<key>title</key>
@@ -341,13 +334,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>214</string>
+					<string>215</string>
 					<key>StartingColumnNumber</key>
-					<string>8</string>
+					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>213</string>
+					<string>214</string>
 					<key>Timestamp</key>
-					<string>802565282.699417</string>
+					<string>802708453.525813</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -363,16 +356,15 @@
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string>}
+				<string>        }
 </string>
 				<key>leading</key>
-				<string>        if playerSwipedUp {
-            eatTheFood()
-        </string>
+				<string>        characterNow.eatingAnim(on: hungryCharSprite)
+            
+</string>
 				<key>trailing</key>
 				<string>        
     }
-}
 </string>
 			</dict>
 			<key>title</key>
@@ -388,13 +380,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>214</string>
+					<string>215</string>
 					<key>StartingColumnNumber</key>
-					<string>8</string>
+					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>213</string>
+					<string>214</string>
 					<key>Timestamp</key>
-					<string>802565282.699378</string>
+					<string>802708453.525462</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -410,16 +402,15 @@
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string>}
+				<string>        }
 </string>
 				<key>leading</key>
-				<string>        if playerSwipedUp {
-            eatTheFood()
-        </string>
+				<string>        characterNow.eatingAnim(on: hungryCharSprite)
+            
+</string>
 				<key>trailing</key>
 				<string>        
     }
-}
 </string>
 			</dict>
 			<key>title</key>
@@ -435,13 +426,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>214</string>
+					<string>215</string>
 					<key>StartingColumnNumber</key>
-					<string>8</string>
+					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>213</string>
+					<string>214</string>
 					<key>Timestamp</key>
-					<string>802565282.699398</string>
+					<string>802708453.525911</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -457,16 +448,15 @@
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string>}
+				<string>        }
 </string>
 				<key>leading</key>
-				<string>        if playerSwipedUp {
-            eatTheFood()
-        </string>
+				<string>        characterNow.eatingAnim(on: hungryCharSprite)
+            
+</string>
 				<key>trailing</key>
 				<string>        
     }
-}
 </string>
 			</dict>
 			<key>type</key>
