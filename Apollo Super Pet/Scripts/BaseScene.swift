@@ -175,6 +175,7 @@ class BaseScene: SKScene {
             if selectionPointer.parent == nil {
                 addChild(selectionPointer)
                 selectionPointer.zPosition = 5
+                selectionPointer.setScale(1.0)
                 selectionPointer.setScale(self.size.width / selectionPointer.size.width)
                 
                 

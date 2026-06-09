@@ -12,13 +12,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>215</string>
+					<string>230</string>
 					<key>StartingColumnNumber</key>
 					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>214</string>
+					<string>229</string>
 					<key>Timestamp</key>
-					<string>802708453.525663</string>
+					<string>802713191.19877</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -37,11 +37,12 @@
 				<string>        }
 </string>
 				<key>leading</key>
-				<string>        characterNow.eatingAnim(on: hungryCharSprite)
+				<string>        }
             
 </string>
 				<key>trailing</key>
-				<string>        
+				<string>
+        
     }
 </string>
 			</dict>
@@ -58,13 +59,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>215</string>
+					<string>230</string>
 					<key>StartingColumnNumber</key>
 					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>214</string>
+					<string>229</string>
 					<key>Timestamp</key>
-					<string>802708453.5257829</string>
+					<string>802713191.198758</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -83,11 +84,12 @@
 				<string>        }
 </string>
 				<key>leading</key>
-				<string>        characterNow.eatingAnim(on: hungryCharSprite)
+				<string>        }
             
 </string>
 				<key>trailing</key>
-				<string>        
+				<string>
+        
     }
 </string>
 			</dict>
@@ -104,13 +106,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>215</string>
+					<string>230</string>
 					<key>StartingColumnNumber</key>
 					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>214</string>
+					<string>229</string>
 					<key>Timestamp</key>
-					<string>802708453.5258729</string>
+					<string>802713191.198652</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -129,11 +131,12 @@
 				<string>        }
 </string>
 				<key>leading</key>
-				<string>        characterNow.eatingAnim(on: hungryCharSprite)
+				<string>        }
             
 </string>
 				<key>trailing</key>
-				<string>        
+				<string>
+        
     }
 </string>
 			</dict>
@@ -150,13 +153,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>215</string>
+					<string>230</string>
 					<key>StartingColumnNumber</key>
 					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>214</string>
+					<string>229</string>
 					<key>Timestamp</key>
-					<string>802708453.525723</string>
+					<string>802713191.198782</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -175,11 +178,12 @@
 				<string>        }
 </string>
 				<key>leading</key>
-				<string>        characterNow.eatingAnim(on: hungryCharSprite)
+				<string>        }
             
 </string>
 				<key>trailing</key>
-				<string>        
+				<string>
+        
     }
 </string>
 			</dict>
@@ -196,13 +200,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>215</string>
+					<string>230</string>
 					<key>StartingColumnNumber</key>
 					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>214</string>
+					<string>229</string>
 					<key>Timestamp</key>
-					<string>802708453.525753</string>
+					<string>802713191.198722</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -221,11 +225,12 @@
 				<string>        }
 </string>
 				<key>leading</key>
-				<string>        characterNow.eatingAnim(on: hungryCharSprite)
+				<string>        }
             
 </string>
 				<key>trailing</key>
-				<string>        
+				<string>
+        
     }
 </string>
 			</dict>
@@ -242,13 +247,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>215</string>
+					<string>230</string>
 					<key>StartingColumnNumber</key>
 					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>214</string>
+					<string>229</string>
 					<key>Timestamp</key>
-					<string>802708453.5256931</string>
+					<string>802713191.198734</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -267,11 +272,12 @@
 				<string>        }
 </string>
 				<key>leading</key>
-				<string>        characterNow.eatingAnim(on: hungryCharSprite)
+				<string>        }
             
 </string>
 				<key>trailing</key>
-				<string>        
+				<string>
+        
     }
 </string>
 			</dict>
@@ -288,13 +294,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>215</string>
+					<string>230</string>
 					<key>StartingColumnNumber</key>
 					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>214</string>
+					<string>229</string>
 					<key>Timestamp</key>
-					<string>802708453.525843</string>
+					<string>802713191.1987081</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -313,11 +319,12 @@
 				<string>        }
 </string>
 				<key>leading</key>
-				<string>        characterNow.eatingAnim(on: hungryCharSprite)
+				<string>        }
             
 </string>
 				<key>trailing</key>
-				<string>        
+				<string>
+        
     }
 </string>
 			</dict>
@@ -334,13 +341,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>215</string>
+					<string>230</string>
 					<key>StartingColumnNumber</key>
 					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>214</string>
+					<string>229</string>
 					<key>Timestamp</key>
-					<string>802708453.525813</string>
+					<string>802713191.198795</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -359,11 +366,12 @@
 				<string>        }
 </string>
 				<key>leading</key>
-				<string>        characterNow.eatingAnim(on: hungryCharSprite)
+				<string>        }
             
 </string>
 				<key>trailing</key>
-				<string>        
+				<string>
+        
     }
 </string>
 			</dict>
@@ -380,13 +388,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>215</string>
+					<string>230</string>
 					<key>StartingColumnNumber</key>
 					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>214</string>
+					<string>229</string>
 					<key>Timestamp</key>
-					<string>802708453.525462</string>
+					<string>802713191.198693</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -405,11 +413,12 @@
 				<string>        }
 </string>
 				<key>leading</key>
-				<string>        characterNow.eatingAnim(on: hungryCharSprite)
+				<string>        }
             
 </string>
 				<key>trailing</key>
-				<string>        
+				<string>
+        
     }
 </string>
 			</dict>
@@ -426,13 +435,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>215</string>
+					<string>230</string>
 					<key>StartingColumnNumber</key>
 					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>214</string>
+					<string>229</string>
 					<key>Timestamp</key>
-					<string>802708453.525911</string>
+					<string>802713191.198746</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -451,11 +460,12 @@
 				<string>        }
 </string>
 				<key>leading</key>
-				<string>        characterNow.eatingAnim(on: hungryCharSprite)
+				<string>        }
             
 </string>
 				<key>trailing</key>
-				<string>        
+				<string>
+        
     }
 </string>
 			</dict>

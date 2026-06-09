@@ -91,22 +91,30 @@ struct Drink: AllFoods {
 class Food: BaseScene {
     
     var activeCharacter: SKSpriteNode!
+    //var chosenFood = items[currentIndex]
     
     // the properties to store the foods - so that when I remove them from parent later, it would surely be the same thing; the stuff created in the function needs to be stored somewhere and it's in these:
     
-    var mainCourse: SKSpriteNode!
+    let mainCourse = MainCourse()
+    let hotdog = HotDog()
+    let apple = Apple()
+    let iceCream = IceCream()
+    let drink = Drink()
+    
+   /* var mainCourse: SKSpriteNode!
     var hotdog: SKSpriteNode!
     var apple: SKSpriteNode!
     var iceCream: SKSpriteNode!
-    var drink: SKSpriteNode!
+    var drink: SKSpriteNode! */
+    
     
     // need variable names to make it clear this is only what the foods look like, imagining it as images of food on a canteen menu :)
     
-    let mainCoursePicture = SKSpriteNode(imageNamed: "meal0")
+    /* var mainCoursePicture = mainCourse.foodNode
     let hotdogPicture = SKSpriteNode(imageNamed: "hotdog0")
     let applePicture = SKSpriteNode(imageNamed: "apple0")
     let iceCreamPicture = SKSpriteNode(imageNamed: "iceCream0")
-    let drinkPicture = SKSpriteNode(imageNamed: "drink0")
+    let drinkPicture = SKSpriteNode(imageNamed: "drink0")*/
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
@@ -140,51 +148,52 @@ class Food: BaseScene {
         setupCommonElements()
         pointer()
         
+        mainCourse.foodNode.setScale(1.0)
+        hotdog.foodNode.setScale(1.0)
+        apple.foodNode.setScale(1.0)
+        iceCream.foodNode.setScale(1.0)
+        drink.foodNode.setScale(1.0)
+        
         
         // make an array with all foods, if the index is more than 1 - hide main course and hotdog and show others; define when a food is selected and when it is confirmed
         
-        addChild(mainCoursePicture)
+        addChild(mainCourse.foodNode)
         print("main course has been added but it's just a picture!")
         //mainCourse.foodNode.position = CGPoint(x: size.width / 3.3, y: size.height / 2.33)
-        mainCoursePicture.position = CGPoint(x: 197, y: 350)
-        mainCoursePicture.zPosition = 10
+        mainCourse.foodNode.position = CGPoint(x: 197, y: 350)
+        mainCourse.foodNode.zPosition = 10
+        mainCourse.foodNode.setScale(self.size.width / mainCourse.foodNode.size.width)
+        mainCourse.foodNode.isHidden = false
         
-        mainCoursePicture.setScale(self.size.width / mainCoursePicture.size.width)
-        mainCoursePicture.isHidden = false
-        
-        addChild(hotdogPicture)
+        addChild(hotdog.foodNode)
         print("Hotdog has been added and it's just a picture!")
-        hotdogPicture.position = CGPoint(x: 197, y: 350)
-        hotdogPicture.zPosition = 11
+        hotdog.foodNode.position = CGPoint(x: 197, y: 350)
+        hotdog.foodNode.zPosition = 11
+        hotdog.foodNode.setScale(self.size.width / hotdog.foodNode.size.width)
+        hotdog.foodNode.isHidden = false
         
-        hotdogPicture.setScale(self.size.width / hotdogPicture.size.width)
-        hotdogPicture.isHidden = false
-        
-        addChild(applePicture)
+        addChild(apple.foodNode)
         print("apple has been added and it's also just a pic!")
-        applePicture.position = CGPoint(x: 197, y: 350)
-        applePicture.zPosition = 12
+        apple.foodNode.position = CGPoint(x: 197, y: 350)
+        apple.foodNode.zPosition = 12
+        apple.foodNode.setScale(self.size.width / apple.foodNode.size.width)
+        apple.foodNode.isHidden = true
         
-        applePicture.setScale(self.size.width / applePicture.size.width)
-        applePicture.isHidden = true
-        
-        addChild(iceCreamPicture)
+        addChild( iceCream.foodNode)
         print("ice cream has been added - yes, it's also just a pic on a menu!")
-        iceCreamPicture.position = CGPoint(x: 197, y: 350)
-        iceCreamPicture.zPosition = 13
+        iceCream.foodNode.position = CGPoint(x: 197, y: 350)
+        iceCream.foodNode.zPosition = 13
+        iceCream.foodNode.setScale(self.size.width /  iceCream.foodNode.size.width)
+        iceCream.foodNode.isHidden = true
         
-        iceCreamPicture.setScale(self.size.width / iceCreamPicture.size.width)
-        iceCreamPicture.isHidden = true
-        
-        addChild(drinkPicture)
+        addChild( drink.foodNode)
         print("drink has been added, just a drawing!")
-        drinkPicture.position = CGPoint(x: 197, y: 350)
-        drinkPicture.zPosition = 14
+        drink.foodNode.position = CGPoint(x: 197, y: 350)
+        drink.foodNode.zPosition = 14
+        drink.foodNode.setScale(self.size.width / drink.foodNode.size.width)
+        drink.foodNode.isHidden = true
         
-        drinkPicture.setScale(self.size.width / drinkPicture.size.width)
-        drinkPicture.isHidden = true
-        
-        items = [mainCoursePicture, hotdogPicture, applePicture, iceCreamPicture, drinkPicture]
+        items = [mainCourse.foodNode, hotdog.foodNode, apple.foodNode, iceCream.foodNode, drink.foodNode]
         
         pointer()
         DebugStuff.highlightOverlay(on: self)
@@ -197,11 +206,11 @@ class Food: BaseScene {
         isEating = true
         
         selectionPointer.removeFromParent()
-        mainCoursePicture.removeFromParent()
-        hotdogPicture.removeFromParent()
-        applePicture.removeFromParent()
-        iceCreamPicture.removeFromParent()
-        drinkPicture.removeFromParent()
+        mainCourse.foodNode.removeFromParent()
+        hotdog.foodNode.removeFromParent()
+        apple.foodNode.removeFromParent()
+        iceCream.foodNode.removeFromParent()
+        drink.foodNode.removeFromParent()
         
         let characterNow = CharacterManager.shared.setupIdleCharacter()
         let hungryCharSprite = SKSpriteNode(texture: characterNow.eatingFrames.first)
@@ -211,7 +220,14 @@ class Food: BaseScene {
         addChild(hungryCharSprite)
         
         characterNow.eatingAnim(on: hungryCharSprite)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+            self.isEating = false
+            self.currentIndex = 0
+            self.setTheTable()
+        }
             
         }
+
         
     }
