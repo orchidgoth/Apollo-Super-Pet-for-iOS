@@ -4,17 +4,24 @@ import GameplayKit
 protocol AllFoods {
     var foodName: String { get }
     var foodAnimationFrames: [SKTexture] { get }
-    var foodNode: SKSpriteNode  { get }
+    var foodSpriteNode: SKSpriteNode  { get }
     var reducesHunger: Bool { get }
     var makesSick: Bool { get }
     var increasesHappiness: Bool { get }
-    func foodIsBeingEaten(on node: SKSpriteNode) // this would only define the animation of the food as creature eats it - the creature will be animated separately
+    func foodIsBeingEaten(on node: SKSpriteNode, in scene: Food) // this would only define the animation of the food as creature eats it - the creature will be animated separately
 }
 
 extension AllFoods {
-    func foodIsBeingEaten(on node: SKSpriteNode) {
+    func foodIsBeingEaten(on node: SKSpriteNode, in scene: Food) {
         let foodEatenAnim = SKAction.animate (with: foodAnimationFrames, timePerFrame: 0.8 )
-        node.run(foodEatenAnim)
+        
+        let serveFood = SKAction.move(to: CGPoint(x: scene.size.width / 3.9, y: scene.size.height / 2.1), duration: 0)
+                            let waitForFood  = SKAction.wait(forDuration: 0.4)
+                            let eatFood = SKAction.animate(with: foodAnimationFrames, timePerFrame: 0.6)
+                
+                            let foodAnimation = SKAction.sequence([waitForFood, serveFood, eatFood, waitForFood])
+                            
+        node.run(foodAnimation)
         //add the food being eaten animation here
     }
 }
@@ -22,10 +29,10 @@ extension AllFoods {
 struct MainCourse: AllFoods {
     var foodName: String = "Meal"
     var foodAnimationFrames: [SKTexture] = (0...2).map { SKTexture(imageNamed: "meal\($0)")}
-    var foodNode: SKSpriteNode
+    var foodSpriteNode: SKSpriteNode
     
     init() {
-        foodNode = SKSpriteNode(texture: foodAnimationFrames.first)
+        foodSpriteNode = SKSpriteNode(texture: foodAnimationFrames.first)
     }
     
     var reducesHunger: Bool = true
@@ -36,9 +43,9 @@ struct MainCourse: AllFoods {
 struct HotDog: AllFoods {
     var foodName: String = "Hotdog"
     var foodAnimationFrames: [SKTexture] = (0...2).map { SKTexture(imageNamed: "hotdog\($0)")}
-    var foodNode: SKSpriteNode
+    var foodSpriteNode: SKSpriteNode
     init() {
-        foodNode = SKSpriteNode(texture: foodAnimationFrames.first)
+        foodSpriteNode = SKSpriteNode(texture: foodAnimationFrames.first)
     }
     var reducesHunger: Bool = false
     var makesSick: Bool = false
@@ -48,10 +55,10 @@ struct HotDog: AllFoods {
 struct Apple: AllFoods {
     var foodName: String = "Apple"
     var foodAnimationFrames: [SKTexture] = (0...2).map {SKTexture(imageNamed: "apple\($0)")}
-    var foodNode: SKSpriteNode
+    var foodSpriteNode: SKSpriteNode
     
     init() {
-        foodNode = SKSpriteNode(texture: foodAnimationFrames.first)
+        foodSpriteNode = SKSpriteNode(texture: foodAnimationFrames.first)
     }
     
     var reducesHunger: Bool = false
@@ -62,10 +69,10 @@ struct Apple: AllFoods {
 struct IceCream: AllFoods {
     var foodName: String = "IceCream"
     var foodAnimationFrames: [SKTexture] = (0...2).map {SKTexture(imageNamed: "iceCream\($0)")}
-    var foodNode: SKSpriteNode
+    var foodSpriteNode: SKSpriteNode
     
     init() {
-        foodNode = SKSpriteNode(texture: foodAnimationFrames.first)
+        foodSpriteNode = SKSpriteNode(texture: foodAnimationFrames.first)
     }
     
     var reducesHunger: Bool = false
@@ -76,11 +83,11 @@ struct IceCream: AllFoods {
 struct Drink: AllFoods {
     var foodName: String = "Drink"
     var foodAnimationFrames: [SKTexture] = (0...2).map {SKTexture(imageNamed: "drink\($0)")}
-    var foodNode: SKSpriteNode
+    var foodSpriteNode: SKSpriteNode
     
     // this sets the appearance of a food to the first frame of the animation, basically gives the in-game foods the way they look
     init() {
-        foodNode = SKSpriteNode(texture: foodAnimationFrames.first)
+        foodSpriteNode = SKSpriteNode(texture: foodAnimationFrames.first)
     }
     
     var reducesHunger: Bool = false
@@ -91,7 +98,6 @@ struct Drink: AllFoods {
 class Food: BaseScene {
     
     var activeCharacter: SKSpriteNode!
-    //var chosenFood = items[currentIndex]
     
     // the properties to store the foods - so that when I remove them from parent later, it would surely be the same thing; the stuff created in the function needs to be stored somewhere and it's in these:
     
@@ -101,21 +107,12 @@ class Food: BaseScene {
     let iceCream = IceCream()
     let drink = Drink()
     
-   /* var mainCourse: SKSpriteNode!
-    var hotdog: SKSpriteNode!
-    var apple: SKSpriteNode!
-    var iceCream: SKSpriteNode!
-    var drink: SKSpriteNode! */
+    var foods: [AllFoods] = []
     
     
     // need variable names to make it clear this is only what the foods look like, imagining it as images of food on a canteen menu :)
     
-    /* var mainCoursePicture = mainCourse.foodNode
-    let hotdogPicture = SKSpriteNode(imageNamed: "hotdog0")
-    let applePicture = SKSpriteNode(imageNamed: "apple0")
-    let iceCreamPicture = SKSpriteNode(imageNamed: "iceCream0")
-    let drinkPicture = SKSpriteNode(imageNamed: "drink0")*/
-    
+   
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         
@@ -141,59 +138,67 @@ class Food: BaseScene {
         
         
     }
-    
+
     func setTheTable() {
         
         removeAllChildren()
         setupCommonElements()
         pointer()
         
-        mainCourse.foodNode.setScale(1.0)
-        hotdog.foodNode.setScale(1.0)
-        apple.foodNode.setScale(1.0)
-        iceCream.foodNode.setScale(1.0)
-        drink.foodNode.setScale(1.0)
+        foods = [mainCourse, hotdog, apple, iceCream, drink] // variables that refer to food structs with all info
+       
+        items = foods.map {$0.foodSpriteNode}
+       // just the images of foods
+        currentIndex = 0
+        
+        mainCourse.foodSpriteNode.setScale(1.0)
+        hotdog.foodSpriteNode.setScale(1.0)
+        apple.foodSpriteNode.setScale(1.0)
+        iceCream.foodSpriteNode.setScale(1.0)
+        drink.foodSpriteNode.setScale(1.0)
         
         
         // make an array with all foods, if the index is more than 1 - hide main course and hotdog and show others; define when a food is selected and when it is confirmed
         
-        addChild(mainCourse.foodNode)
+        addChild(mainCourse.foodSpriteNode)
         print("main course has been added but it's just a picture!")
         //mainCourse.foodNode.position = CGPoint(x: size.width / 3.3, y: size.height / 2.33)
-        mainCourse.foodNode.position = CGPoint(x: 197, y: 350)
-        mainCourse.foodNode.zPosition = 10
-        mainCourse.foodNode.setScale(self.size.width / mainCourse.foodNode.size.width)
-        mainCourse.foodNode.isHidden = false
+        mainCourse.foodSpriteNode.position = CGPoint(x: 197, y: 350)
+        mainCourse.foodSpriteNode.zPosition = 10
+        mainCourse.foodSpriteNode.setScale(self.size.width / mainCourse.foodSpriteNode.size.width)
+        mainCourse.foodSpriteNode.isHidden = false
         
-        addChild(hotdog.foodNode)
+        addChild(hotdog.foodSpriteNode)
         print("Hotdog has been added and it's just a picture!")
-        hotdog.foodNode.position = CGPoint(x: 197, y: 350)
-        hotdog.foodNode.zPosition = 11
-        hotdog.foodNode.setScale(self.size.width / hotdog.foodNode.size.width)
-        hotdog.foodNode.isHidden = false
+        hotdog.foodSpriteNode.position = CGPoint(x: 197, y: 350)
+        hotdog.foodSpriteNode.zPosition = 11
+        hotdog.foodSpriteNode.setScale(self.size.width / hotdog.foodSpriteNode.size.width)
+        hotdog.foodSpriteNode.isHidden = false
         
-        addChild(apple.foodNode)
+        addChild(apple.foodSpriteNode)
         print("apple has been added and it's also just a pic!")
-        apple.foodNode.position = CGPoint(x: 197, y: 350)
-        apple.foodNode.zPosition = 12
-        apple.foodNode.setScale(self.size.width / apple.foodNode.size.width)
-        apple.foodNode.isHidden = true
+        apple.foodSpriteNode.position = CGPoint(x: 197, y: 350)
+        apple.foodSpriteNode.zPosition = 12
+        apple.foodSpriteNode.setScale(self.size.width / apple.foodSpriteNode.size.width)
+        apple.foodSpriteNode.isHidden = true
         
-        addChild( iceCream.foodNode)
+        addChild( iceCream.foodSpriteNode)
         print("ice cream has been added - yes, it's also just a pic on a menu!")
-        iceCream.foodNode.position = CGPoint(x: 197, y: 350)
-        iceCream.foodNode.zPosition = 13
-        iceCream.foodNode.setScale(self.size.width /  iceCream.foodNode.size.width)
-        iceCream.foodNode.isHidden = true
+        iceCream.foodSpriteNode.position = CGPoint(x: 197, y: 350)
+        iceCream.foodSpriteNode.zPosition = 13
+        iceCream.foodSpriteNode.setScale(self.size.width /  iceCream.foodSpriteNode.size.width)
+        iceCream.foodSpriteNode.isHidden = true
         
-        addChild( drink.foodNode)
+        addChild( drink.foodSpriteNode)
         print("drink has been added, just a drawing!")
-        drink.foodNode.position = CGPoint(x: 197, y: 350)
-        drink.foodNode.zPosition = 14
-        drink.foodNode.setScale(self.size.width / drink.foodNode.size.width)
-        drink.foodNode.isHidden = true
+        drink.foodSpriteNode.position = CGPoint(x: 197, y: 350)
+        drink.foodSpriteNode.zPosition = 14
+        drink.foodSpriteNode.setScale(self.size.width / drink.foodSpriteNode.size.width)
+        drink.foodSpriteNode.isHidden = true
         
-        items = [mainCourse.foodNode, hotdog.foodNode, apple.foodNode, iceCream.foodNode, drink.foodNode]
+        
+       
+        
         
         pointer()
         DebugStuff.highlightOverlay(on: self)
@@ -205,12 +210,13 @@ class Food: BaseScene {
         
         isEating = true
         
+        
         selectionPointer.removeFromParent()
-        mainCourse.foodNode.removeFromParent()
-        hotdog.foodNode.removeFromParent()
-        apple.foodNode.removeFromParent()
-        iceCream.foodNode.removeFromParent()
-        drink.foodNode.removeFromParent()
+        mainCourse.foodSpriteNode.removeFromParent()
+        hotdog.foodSpriteNode.removeFromParent()
+        apple.foodSpriteNode.removeFromParent()
+        iceCream.foodSpriteNode.removeFromParent()
+        drink.foodSpriteNode.removeFromParent()
         
         let characterNow = CharacterManager.shared.setupIdleCharacter()
         let hungryCharSprite = SKSpriteNode(texture: characterNow.eatingFrames.first)
@@ -219,14 +225,31 @@ class Food: BaseScene {
         hungryCharSprite.zPosition = 3
         addChild(hungryCharSprite)
         
+       
+        
+        let foodToEat = foods[currentIndex]
+        let foodToEatSprite = items[currentIndex]
+        foodToEatSprite.position = CGPoint(x: 197, y: 350)
+        foodToEatSprite.setScale(1.0)
+        foodToEatSprite.setScale(self.size.width / foodToEatSprite.size.width)
+        foodToEatSprite.zPosition = 4
+        addChild(foodToEatSprite)
+        
+        foodToEat.foodIsBeingEaten(on: foodToEatSprite, in: self)
         characterNow.eatingAnim(on: hungryCharSprite)
+        
+        if foodToEat.reducesHunger {
+            CharacterManager.shared.hunger -= 1
+        } else {
+            return
+        }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2){
             self.isEating = false
             self.currentIndex = 0
             self.setTheTable()
         }
-            
+        
         }
 
         

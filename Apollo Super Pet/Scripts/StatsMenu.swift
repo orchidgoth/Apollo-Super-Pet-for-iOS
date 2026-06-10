@@ -29,7 +29,7 @@ class Stats: BaseScene {
         
         func showHungerStats () {
             
-            character?.hunger = max(0, min(character!.hunger,4))
+            CharacterManager.shared.hunger = max(0, min(CharacterManager.shared.hunger,4))
             
             hungerIcon.position = CGPoint(x: size.width * 0.5, y: size.height * 0.8 - 235)
             hungerIcon.zPosition = 20
@@ -42,7 +42,7 @@ class Stats: BaseScene {
             
             addChild(statsBar)
             
-            switch character?.hunger {
+            switch CharacterManager.shared.hunger {
             case 4: statsBar.texture = SKTexture(imageNamed: "statsBar0")
             case 3: statsBar.texture = SKTexture(imageNamed: "statsBar1")
             case 2: statsBar.texture = SKTexture(imageNamed: "statsBar2")

@@ -84,9 +84,9 @@ class Character {
     var currentCharacter: forAllCharacters
     
     var currentAge: Int = 0
-    var health: Int = 4
-    var hunger: Int = 0
-    var happiness: Int = 4
+    //var health: Int = 4
+   //var hunger: Int = 0
+   //var happiness: Int = 4
     var background: [SKTexture] = []
     var idleAnimation: [SKTexture] = []
     

@@ -10,8 +10,8 @@ class CharacterManager {
     
     var currentCharacterStage: forAllCharacters?
     
-    //var hunger: Int = 4
-    //var happiness: Int = 0
+    var hunger: Int = 4
+    var happiness: Int = 0
     
     func setupIdleCharacter () -> forAllCharacters {
         //aCharacter is one that's given to this function as an initial thing

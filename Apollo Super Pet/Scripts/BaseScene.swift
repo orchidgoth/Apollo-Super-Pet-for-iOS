@@ -26,7 +26,7 @@ class BaseScene: SKScene {
     var isEating = false
     var lastTapTime: TimeInterval = 0
     let doubleTapThreshold: TimeInterval = 0.3
-    var chosenItem: SKSpriteNode?
+    var chosenItem: SKNode?
     var playerTouchedUpperScreen = false
     var playerTouchesMidScreen = false
     var playerSwipedUp = false
