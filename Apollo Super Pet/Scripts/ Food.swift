@@ -13,12 +13,36 @@ protocol AllFoods {
 
 extension AllFoods {
     func foodIsBeingEaten(on node: SKSpriteNode, in scene: Food) {
-        let foodEatenAnim = SKAction.animate (with: foodAnimationFrames, timePerFrame: 0.8 )
         
-        let serveFood = SKAction.move(to: CGPoint(x: scene.size.width / 3.9, y: scene.size.height / 2.1), duration: 0)
+        var startingPoint: CGPoint
+    
+        switch foodName {
+            
+        case MainCourse().foodName:
+            startingPoint = CGPoint (x: scene.size.width / 2.3, y: scene.size.height / 2.23)
+            
+        case HotDog().foodName:
+            startingPoint = CGPoint (x: 0, y: scene.size.height / 2.16)
+            
+        case Apple().foodName:
+            startingPoint = CGPoint (x: scene.size.width / 2, y: scene.size.height / 2.23)
+            
+        case IceCream().foodName:
+            startingPoint = CGPoint (x: scene.size.width / 4, y: scene.size.height / 2.16)
+            
+        case Drink().foodName:
+            startingPoint = CGPoint (x: -60, y: scene.size.height / 2.23)
+            
+        default:
+            startingPoint = CGPoint (x: scene.size.width / 2.53, y: scene.size.height / 2.23)
+            
+        }
+        
+        node.position = startingPoint
+        
+        let serveFood = SKAction.moveTo(y: node.position.y - scene.size.height / 6, duration: 0)
                             let waitForFood  = SKAction.wait(forDuration: 0.4)
                             let eatFood = SKAction.animate(with: foodAnimationFrames, timePerFrame: 0.6)
-                
                             let foodAnimation = SKAction.sequence([waitForFood, serveFood, eatFood, waitForFood])
                             
         node.run(foodAnimation)
@@ -238,11 +262,6 @@ class Food: BaseScene {
         foodToEat.foodIsBeingEaten(on: foodToEatSprite, in: self)
         characterNow.eatingAnim(on: hungryCharSprite)
         
-        if foodToEat.reducesHunger {
-            CharacterManager.shared.hunger -= 1
-        } else {
-            return
-        }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2){
             self.isEating = false
@@ -250,7 +269,9 @@ class Food: BaseScene {
             self.setTheTable()
         }
         
+        if foodToEat.reducesHunger {
+            CharacterManager.shared.hunger -= 1 }
+        }
+        
         }
 
-        
-    }
